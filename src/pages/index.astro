@@ -1,0 +1,127 @@
+---
+// Component Imports
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+
+let mainImgUrl = '/assets/+.svg';
+---
+
+<html lang="en" data-theme="dark">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<title>UroSystem B2B</title>
+    <style is:global>
+      @import "/src/assets/global.css";
+    </style>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+    rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap"
+        rel="stylesheet"
+        type="text/css">
+    </noscript>
+	</head>
+
+	<body style={`background-image: url('${mainImgUrl}')`}>
+	<!--<body class="bg-accent">-->
+		<article class="min-h-screen content-center max-w-4xl mx-auto py-8">
+      <header class="prose text-center w-full min-w-full">
+        <h1>UroSystem North America </h1>
+        <h2>NEW CUSTOMER ONBOARDING FORM</h2>
+      </header>
+      <div class="card w-auto shadow-xl image--full mx-4 bg-base-100">
+        <form class="card-body gap-8" name="B2B Onboarding Form" method="POST" netlify>
+          <h3 class="card-title">The survey will take approximately 4 minutes to complete and helps Urosystem to collect all necessary information to serve its customers better</h3>
+            <fieldset class="flex flex-wrap gap-8">
+              <label for="company" class="flex-1 min-w-fit">Full Legal Name of Customer<br>
+                <input id="company" name="company" type="text" required placeholder="* required" class="input input-bordered input-md flex-1 min-w-fit w-full">
+              </label>
+              <label for="address" class="flex-1 min-w-fit">Full Address (Country, State, Zip, Street, Number)<br>
+                <input id="address" name="address" type="text" required placeholder="* required" class="input input-bordered input-md flex-1 min-w-fit w-full">
+              </label>
+            </fieldset>
+            <fieldset class="flex flex-wrap gap-8">
+              <label for="address" class="flex-1 min-w-fit">Customer business (short description)<br>
+                <input id="business" name="business" type="text" required placeholder="* required" class="input input-bordered input-md flex-1 min-w-fit w-full">
+              </label>
+              <label for="address" class="flex-1 min-w-fit">Customer's website<br>
+                <input id="website" name="website" type="text" required placeholder="* required" class="input input-bordered input-md flex-1 min-w-fit w-full">
+              </label>
+            </fieldset>
+            <fieldset class="flex flex-wrap gap-8">
+              <label for="address" class="flex-1 min-w-fit">Contact name<br>
+                <input id="name" name="name" type="text" required placeholder="* required" class="input input-bordered input-md flex-1 min-w-fit w-full">
+              </label>
+              <label for="address" class="flex-1 min-w-fit">Contact's title or role<br>
+                <input id="title" name="title" type="text" required placeholder="* required" class="input input-bordered input-md flex-1 min-w-fit w-full">
+              </label>
+            </fieldset>
+            <fieldset class="flex flex-wrap gap-8">
+              <label for="address" class="flex-1 min-w-fit">Contact's Email<br>
+                <input id="email" name="email" type="email" required placeholder="* required" class="input input-bordered input-md flex-1 min-w-fit w-full">
+              </label>
+              <label for="address" class="flex-1 min-w-fit">Contact's phone number in international format<br>
+                <input id="phone" name="phone" type="tel" title="+00 1 123 4567890" nonpattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required placeholder="* required (+00 1 123 4567890)" class="input input-bordered input-md flex-1 min-w-fit w-full">
+              </label>
+            </fieldset>
+            <fieldset class="flex flex-wrap gap-8">
+              <label for="address" class="flex-1 min-w-fit">Full billing address (if different)<br>
+                <input id="billing" name="billing" type="text" placeholder="" class="input input-bordered input-md flex-1 min-w-fit w-full">
+              </label>
+              <label for="address" class="flex-1 min-w-fit">Full shipping address (if different)<br>
+                <input id="shipping" name="shipping" type="text" placeholder="" class="input input-bordered input-md flex-1 min-w-fit w-full">
+              </label>
+            </fieldset>
+            <fieldset class="flex flex-wrap gap-8">
+              <label for="volume" class="label">Estimated Full Year (12 months) Purchase Volume of UroDapter® (in pieces)</label>
+                <select id="volume" name="volume" class="input input-bordered input-md flex-1 min-w-fit">
+                  <option value="<500">Under 500</option>
+                  <option value="500-2000">500-2000</option>
+                  <option value="2000-5000">2000-5000</option>
+                  <option value="5000-10000">5000-10000</option>
+                  <option value="10000-50000">10000-50000</option>
+                </select>
+              
+            </fieldset>
+
+            <fieldset class="flex flex-col gap-8 my-4">
+              <label for="message" class="label w-full">Any other important comment?
+                <textarea id="message" name="message" class="textarea textarea-primary w-full" placeholder="Your message"></textarea>
+              </label>
+            </fieldset>
+
+            <fieldset class="flex gap-8">
+              <input id="consent" name="consent" type="checkbox" required class="toggle toggle-sm" />
+              <label for="consent">I agree to get answer to my Email.</label> <a href="https://www.urosystem.com/en/privacy-policy" rel="external" target="_blank">See our Privacy Policy</a>
+              <a href="#content" class="ml-auto"><button tabindex="0" class="btn btn-primary flex-none">Send</button></a>
+            </fieldset>
+        </form>
+      </div>
+		</article>
+	</body>
+</html>
+
+<style>
+  input {
+    /*@apply w-full*/
+  }
+  input, textarea {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    /*letter-spacing: .04em;*/
+    -webkit-hyphens:auto;-ms-hyphens:auto;hyphens: auto;
+    text-shadow: 0 0 0.75em var(--dark-blue);
+  }
+
+  /*label {
+    @apply py-4
+  }*/
+</style>
