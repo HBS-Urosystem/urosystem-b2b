@@ -18,5 +18,8 @@
     "daisyui": "^2.2.2",
     "postcss": "^8.4.12",
     "tailwindcss": "^3.0.23"
+  },
+  "dependencies": {
+    "netlify-identity-widget": "^1.9.2"
   }
 }
