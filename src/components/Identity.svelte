@@ -29,6 +29,7 @@
     netlifyIdentity.on('logout', () => {
       netlifyIdentity.close();
       user = null
+      visitor = null
       console.log('logout', user)
     });
     netlifyIdentity.on('error', err => console.error('Error', err));
