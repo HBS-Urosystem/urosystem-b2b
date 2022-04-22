@@ -43,8 +43,8 @@ let mainImgUrl = '/assets/+.svg';
       <div class="hero-overlay"></div>
       <div class="text-center hero-content text-neutral-content">
         <div class="max-w-md">
-          <h1>UroSystem North America </h1>
-          <h2>NEW CUSTOMER ONBOARDING FORM</h2>
+          <h1>UroSystem <br>North America </h1>
+          <h2>NEW BUSINESS</h2>
 <aside class="pb-16">
       <Identity client:load bind="true"/>
 </aside>
@@ -62,13 +62,15 @@ let mainImgUrl = '/assets/+.svg';
   header {
     @apply hero min-h-min;
     background-size: 568px;
+    @apply min-h-screen;
   }
-  @media (orientation: landscape) {
+  /*@media (orientation: landscape) {
     header {
       @apply min-h-screen;
-      /*margin-top: -4rem;*/
-      /*padding-top: 4rem;*/
     }
+  }*/
+  header > * {
+    backdrop-filter: blur(2px);
   }
   main {
     @apply container mx-auto py-16;
