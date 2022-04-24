@@ -66,11 +66,12 @@
   });
   const signup = () => netlifyIdentity.open('signup')
   const login = () => netlifyIdentity.open('login')
+  const logout = () => netlifyIdentity.logout();
   $: visitor = user
   $: console.log('visitor', visitor)
 </script>
 
-{#if bind}
+{#if bind && !visitor}
 <div class="card mx-auto w-fit shadow-xl image-full bg-base-300">
   <div class="card-body">
     <h2 class="card-title">Register/Login as a Business</h2>
@@ -95,8 +96,8 @@
       <a href="/order" tabindex="0" class="btn btn-primary flex-none">Order</a>
     </fieldset>
     <fieldset>
-      <input id="consent" name="consent" type="checkbox" required class="checkbox checkbox-xs" />
-      <label for="consent">I agree to subscribe to the newsletter.</label> <a href="https://www.urosystem.com/en/privacy-policy" rel="external" target="_blank">See our Privacy Policy</a>
+      <label for="logout">or<br></label>
+      <button id="logout" on:click={logout} tabindex="0" class="btn btn-primary flex-none">Log out</button>
     </fieldset>
   </div>
 </div>
