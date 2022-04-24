@@ -2,14 +2,16 @@
   import { onMount } from 'svelte'
   import netlifyIdentity from 'netlify-identity-widget';
   export let bind
-  let user, visitor
+  //console.log({bind})
+  let user, visitor, consent
   
   onMount(() => {
     //if (bind) {
-      netlifyIdentity.init(/*{
-        container: '#netlify-modal', // defaults to document.body
-        locale: 'en' // defaults to 'en'
-      }*/)
+      netlifyIdentity.init({
+        //showHeaders: false, /// TODO
+        /*container: '#netlify-modal', // defaults to document.body
+        locale: 'en' // defaults to 'en'*/
+      })
     //}
     // Open the modal
     //netlifyIdentity.open();
@@ -64,33 +66,38 @@
     //netlifyIdentity.setLocale('en');
 
   });
+
   const signup = () => netlifyIdentity.open('signup')
   const login = () => netlifyIdentity.open('login')
-  const logout = () => netlifyIdentity.logout();
+  const logout = () => {
+    netlifyIdentity.logout();
+    consent = false
+  }
   $: visitor = user
-  $: console.log('visitor', visitor)
+  //$: console.log('consent', consent)
 </script>
 
-{#if bind && !visitor}
+{#if !!bind}
+{#if !visitor}
 <div class="card mx-auto w-fit shadow-xl image-full bg-base-300">
   <div class="card-body">
-    <h2 class="card-title">Register/Login as a Business</h2>
     <fieldset>
-      <button on:click={signup} tabindex="0" class="btn btn-primary flex-none">Sign up</button>
+      <h3 class="text-center">Sign up or Login as a Business</h3>
+      <button disabled={!consent} on:click={signup} tabindex="0" class="btn btn-primary flex-none">Sign up</button>
       <button on:click={login} tabindex="0" class="btn btn-primary flex-none">Log in</button>
     </fieldset>
     <fieldset>
-      <input id="consent" name="consent" type="checkbox" required class="checkbox checkbox-xs" />
+      <input id="consent" bind:checked={consent} name="consent" type="checkbox" required class="checkbox checkbox-xs" />
       <label for="consent">I accept </label><a href="https://www.urosystem.com/en/privacy-policy" rel="external" target="_blank">the Privacy Policy</a>
     </fieldset>
   </div>
 </div>
 {/if}
 
-{#if bind && visitor}
+{#if visitor}
 <div class="card mx-auto w-fit shadow-xl image-full bg-base-300">
   <div class="card-body">
-    <h2 class="card-title">Click Profile or Order</h2>
+    <h3 class="text-center">Set your Profile or Order products</h3>
     <fieldset>
       <a href="/profile" tabindex="0" class="btn btn-primary flex-none">Profile</a>
       <a href="/order" tabindex="0" class="btn btn-primary flex-none">Order</a>
@@ -102,7 +109,14 @@
   </div>
 </div>
 {/if}
+{/if}
 
 <h3>User: {user?.email}</h3>
 <h3>Visitor: {visitor?.email}</h3>
 <!--<div data-netlify-identity-menu class="w-auto image--full"></div>-->
+
+<style>
+  /*:global(div.header) {
+    display: none;
+  }*/
+</style>
