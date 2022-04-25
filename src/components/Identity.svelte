@@ -80,10 +80,10 @@
 
 {#if !!bind}
 {#if !visitor}
-<div class="card mx-auto w-fit shadow-xl image-full bg-base-300">
+<div class="card mx-auto w-fit shadow-xl image-full">
   <div class="card-body">
     <fieldset>
-      <h3 class="text-center">Sign up or Login as a Business</h3>
+      <legend>Sign up or Login as a Business</legend>
       <button disabled={!consent} on:click={signup} tabindex="0" class="btn btn-primary flex-none">Sign up</button>
       <button on:click={login} tabindex="0" class="btn btn-primary flex-none">Log in</button>
     </fieldset>
@@ -96,7 +96,7 @@
 {/if}
 
 {#if visitor}
-<div class="card mx-auto w-fit shadow-xl image-full bg-base-300">
+<div class="card mx-auto w-fit shadow-xl image-full">
   <div class="card-body">
     <p class="text-center">Logged in as {visitor?.email}</p>
     <h3 class="text-center">Set your Profile or Order products</h3>

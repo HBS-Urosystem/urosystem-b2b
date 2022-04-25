@@ -74,32 +74,4 @@ const props = Astro.props
   h1 {
     word-break: break-word;
   }
-  fieldset {
-    @apply flex flex-wrap gap-4;
-  }
-
-  input {
-    /*@apply w-full*/
-  }
-  input, textarea {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    /*letter-spacing: .04em;*/
-    -webkit-hyphens:auto;-ms-hyphens:auto;hyphens: auto;
-    text-shadow: 0 0 0.75em var(--dark-blue);
-  }
-
-  :global(ul) {
-    @apply flex gap-4 justify-center
-  }
-
-  :global(li) {
-    display: inline;
-  }
-  :global(li a) {
-    @apply btn btn-primary flex-none
-  }
-
-  /*label {
-    @apply py-4
-  }*/
 </style>
