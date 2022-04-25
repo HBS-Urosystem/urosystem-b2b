@@ -55,10 +55,13 @@ const user = url.searchParams.get('email');
           <fieldset class="flex gap-8">
             <label for="consent"><input id="consent" name="consent" type="checkbox" required class="checkbox checkbox-xs" /> I accept the 
             <a href="https://www.urosystem.com/en/privacy-policy" rel="external" target="_blank">Privacy Policy</a></label>
-            <a href="#content" class="ml-auto"><button typr="submit" tabindex="0" class="btn btn-primary flex-none">Send</button></a>
+            <button typr="submit" tabindex="0" class="btn btn-primary flex-none ml-auto">Send</button>
           </fieldset>
       </form>
     </div>
+    <aside class="flex justify-center my-10">
+      <a href="/" tabindex="0" class="btn btn-ghost">◀︎ Back</a>
+    </aside>
 
 </Layout>
 

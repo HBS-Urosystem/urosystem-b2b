@@ -64,7 +64,7 @@ article p a, article p a:visited, article li > a, article li > a:visited {
   margin-bottom: -1px;
 }
 
-[data-theme="dark"] article a, [data-theme="dark"] aside a {
+[data-theme="dark"] a:not(.btn) {
   text-decoration: dotted underline;
 }
 
