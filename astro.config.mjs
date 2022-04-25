@@ -9,6 +9,8 @@ export default /** @type {import('astro').AstroUserConfig} */ defineConfig({
     tailwind(),
     svelte(),
   ],
-  adapter: netlify(),
+  adapter: netlify({
+    dist: new URL('./dist/', import.meta.url)
+  })
 });
 
