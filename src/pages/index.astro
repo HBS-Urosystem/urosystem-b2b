@@ -1,6 +1,7 @@
 ---
 // Component Imports
 import Identity from '../components/Identity.svelte';
+import Layout from '../components/Layout.astro';
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
@@ -10,106 +11,8 @@ let mainImgUrl = '/assets/+.svg';
 //const netlifyIdentity = require('netlify-identity-widget');
 
 ---
-
-<html lang="en" data-theme="dark">
-	<head>
-		<meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-		<title>UroSystem B2B</title>
-    <meta name="description" content="New customer onboarding form" />
-    <style is:global>
-      @import "/src/assets/global.css";
-    </style>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-    rel="preload"
-    href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap"
-    as="style"
-    onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap"
-        rel="stylesheet"
-        type="text/css">
-    </noscript>
-	</head>
-
-	<!--<body style={`background-image: url('${mainImgUrl}')`}>-->
-	<body>
-    <header style={`background-image: url('${mainImgUrl}')`}>
-      <div class="hero-overlay"></div>
-      <div class="text-center hero-content text-neutral-content">
-        <div class="max-w-md">
-          <h1>UroSystem <br>North America </h1>
-          <h2>BUSINESS PAGE</h2>
-<aside class="pb-16">
-      <Identity client:load bind={true}/>
-</aside>
-        </div>
-      </div>
-    </header>
-    <main>
-      <article>
-      </article>
-    </main>
-	</body>
-</html>
-
-<style>
-  header {
-    @apply hero min-h-min;
-    background-size: 568px;
-    @apply min-h-screen;
-  }
-  /*@media (orientation: landscape) {
-    header {
-      @apply min-h-screen;
-    }
-  }*/
-  header > * {
-    backdrop-filter: blur(2px);
-  }
-  main {
-    @apply container mx-auto py-16;
-    max-width: 1280px;
-  }
-  article {
-    @apply mx-auto prose md:prose-lg lg:prose-xl prose-a:underline prose-a:decoration-dotted;
-  }
-
-  h1 {
-    @apply mb-5 text-5xl font-bold;
-    word-break: break-word;
-  }
-  fieldset {
-    @apply flex flex-wrap gap-4;
-  }
-
-  input {
-    /*@apply w-full*/
-  }
-  input, textarea {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    /*letter-spacing: .04em;*/
-    -webkit-hyphens:auto;-ms-hyphens:auto;hyphens: auto;
-    text-shadow: 0 0 0.75em var(--dark-blue);
-  }
-
-  :global(ul) {
-    @apply flex gap-4 justify-center
-  }
-
-  :global(li) {
-    display: inline;
-  }
-  :global(li a) {
-    @apply btn btn-primary flex-none
-  }
-
-  /*label {
-    @apply py-4
-  }*/
-</style>
+<Layout title="BUSINESS PAGE">
+<!--<div slot="header">-->
+  <Identity slot="header" client:load bind={true}}/>
+<!--</div>-->
+</Layout>

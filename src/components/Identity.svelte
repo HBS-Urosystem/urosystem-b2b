@@ -1,9 +1,9 @@
 <script>
   import { onMount } from 'svelte'
   import netlifyIdentity from 'netlify-identity-widget';
-  export let bind
+  export let bind, redirect, user
   //console.log({bind})
-  let user, visitor, consent
+  let visitor, consent
   
   onMount(() => {
     //if (bind) {
@@ -19,6 +19,7 @@
     // Get the current user:
     // Available after on('init') is invoked
     /*const*/ user = netlifyIdentity.currentUser();
+    if(!!redirect && !user) window.location = redirect
 
     // Bind to events
     netlifyIdentity.on('init', user => console.log('init', user));
@@ -88,7 +89,7 @@
     </fieldset>
     <fieldset>
       <input id="consent" bind:checked={consent} name="consent" type="checkbox" required class="checkbox checkbox-xs" />
-      <label for="consent">I accept </label><a href="https://www.urosystem.com/en/privacy-policy" rel="external" target="_blank">the Privacy Policy</a>
+      <label for="consent">I accept the </label><a href="https://www.urosystem.com/en/privacy-policy" rel="external" target="_blank">Privacy Policy</a>
     </fieldset>
   </div>
 </div>
@@ -97,10 +98,11 @@
 {#if visitor}
 <div class="card mx-auto w-fit shadow-xl image-full bg-base-300">
   <div class="card-body">
+    <p class="text-center">Logged in as {visitor?.email}</p>
     <h3 class="text-center">Set your Profile or Order products</h3>
     <fieldset>
-      <a href="/profile" tabindex="0" class="btn btn-primary flex-none">Profile</a>
-      <a href="/order" tabindex="0" class="btn btn-primary flex-none">Order</a>
+      <a href="/profile?email={visitor.email}" tabindex="0" class="btn btn-primary flex-none">Profile</a>
+      <a href="/order?email={visitor.email}" tabindex="0" class="btn btn-primary flex-none">Order</a>
     </fieldset>
     <fieldset>
       <label for="logout">or<br></label>
@@ -110,11 +112,10 @@
 </div>
 {/if}
 {/if}
-
+<!--
 <h3>User: {user?.email}</h3>
 <h3>Visitor: {visitor?.email}</h3>
-<!--<div data-netlify-identity-menu class="w-auto image--full"></div>-->
-
+-->
 <style>
   /*:global(div.header) {
     display: none;

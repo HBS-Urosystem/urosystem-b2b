@@ -61,8 +61,9 @@ article p a, article p a:visited, article li > a, article li > a:visited {
 
 [data-theme="dark"] input[type='checkbox'] {
   --tw-border-opacity: 1;
+  margin-bottom: -1px;
 }
 
-[data-theme="dark"] form a {
+[data-theme="dark"] article a {
   text-decoration: dotted underline;
 }
