@@ -19,7 +19,7 @@
     // Get the current user:
     // Available after on('init') is invoked
     user = netlifyIdentity.currentUser();
-    //if(!!redirect && !user) window.location = redirect
+    if(!!redirect && !user) window.location = redirect
 
     // Bind to events
     netlifyIdentity.on('init', user => console.log('init', user));
