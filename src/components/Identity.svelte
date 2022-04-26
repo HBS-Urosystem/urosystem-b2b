@@ -106,7 +106,7 @@
     </fieldset>
     <fieldset>
       <label for="logout">or<br></label>
-      <button id="logout" on:click={logout} tabindex="0" class="btn btn-primary flex-none">Log out</button>
+      <button id="logout" on:click={logout} tabindex="0" class="btn btn-ghost flex-none">Log out</button>
     </fieldset>
   </div>
 </div>

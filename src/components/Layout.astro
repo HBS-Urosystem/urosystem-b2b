@@ -34,7 +34,7 @@ const props = Astro.props
 	<body>
     <header class="hero min-h-screen" style={`background-image: url('${mainImgUrl}')`}>
       <div class="hero-overlay"></div>
-      <div class="hero---content text-neutral-content">
+      <div class="hero-content flex-col text-neutral-content">
         <aside class="text-center mx-auto pb-16 max-w-md">
         <h1 class="mt-10 mb-5 text-5xl font-bold">UroSystem <br>North America </h1>
         <h2 class="mt-10 mb-5 text-3xl">{props.title}</h2>
@@ -60,7 +60,7 @@ const props = Astro.props
       @apply min-h-screen;
     }
   }*/
-  header > * {
+  .hero-overlay {
     backdrop-filter: blur(2px);
   }
   main {
