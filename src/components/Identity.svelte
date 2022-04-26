@@ -2,7 +2,7 @@
   import { onMount } from 'svelte'
   import netlifyIdentity from 'netlify-identity-widget';
   export let bind, redirect, user
-  //console.log('MODE.prod:',import.meta.env.PROD)
+  //console.log('env.MODE:',import.meta.env.MODE)
   let visitor, consent
   
   onMount(() => {
@@ -18,7 +18,7 @@
 
     // Get the current user:
     // Available after on('init') is invoked
-    /*const*/ user = netlifyIdentity.currentUser();
+    user = netlifyIdentity.currentUser();
     //if(!!redirect && !user) window.location = redirect
 
     // Bind to events
