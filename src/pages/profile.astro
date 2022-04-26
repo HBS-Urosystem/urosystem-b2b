@@ -9,7 +9,7 @@ const user = url.searchParams.get('email');
     <Identity client:load bind={false} redirect="/"/>
 
     <div class="card w-auto shadow-xl image--full mx-4 bg-base-100">
-      <form class="card-body gap-8" name="B2B Onboarding Form" method="POST">
+      <form class="card-body gap-8" name="B2B Onboarding Form" method="POST" action="/thankyou">
         <input type="hidden" name="form-name" value="B2B Onboarding Form">
         <legend class="card-title">The survey will take approximately 4 minutes to complete and helps Urosystem to collect all necessary information to serve its customers better</legend>
         <fieldset class="flex flex-wrap gap-8">
@@ -73,7 +73,7 @@ const user = url.searchParams.get('email');
         <fieldset class="flex gap-8">
           <label for="consent"><input id="consent" name="consent" type="checkbox" required class="checkbox checkbox-xs" /> I accept the 
           <a href="https://www.urosystem.com/en/privacy-policy" rel="external" target="_blank">Privacy Policy</a></label>
-          <button typr="submit" tabindex="0" class="btn btn-primary flex-none ml-auto">Send</button>
+          <button type="submit" tabindex="0" class="btn btn-primary flex-none ml-auto">Send</button>
         </fieldset>
       </form>
     </div>
