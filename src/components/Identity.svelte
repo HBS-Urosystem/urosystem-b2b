@@ -19,7 +19,7 @@
     // Get the current user:
     // Available after on('init') is invoked
     user = netlifyIdentity.currentUser();
-    if(!!redirect && !user) window.location = redirect
+    if(window && !!redirect && !user) window.location = redirect
 
     // Bind to events
     netlifyIdentity.on('init', user => console.log('init', user));
@@ -99,10 +99,10 @@
 <div class="card mx-auto w-fit shadow-xl image-full">
   <div class="card-body">
     <p class="text-center">Logged in as {visitor?.email}</p>
-    <h3 class="text-center">Set your Profile or Order products</h3>
-    <fieldset class="flex gap-8 my-4">
-      <a href="/profile?email={visitor.email}" tabindex="0" class="btn btn-primary flex-none">Profile</a>
-      <a href="/order?email={visitor.email}" tabindex="0" class="btn btn-primary flex-none">Order</a>
+    <h3 class="text-center">Please set up your Profile before placing your first order.</h3>
+    <fieldset class="flex justify-center gap-8 my-4">
+      <a href="/b2b/profile?email={visitor.email}" tabindex="0" class="btn btn-primary flex-none">Profile</a>
+      <a href="/b2b/order?email={visitor.email}" tabindex="0" class="btn btn-primary flex-none">Order</a>
     </fieldset>
     <fieldset>
       <label for="logout">or<br></label>
