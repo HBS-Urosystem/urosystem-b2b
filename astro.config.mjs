@@ -14,7 +14,7 @@ export default /** @type {import('astro').AstroUserConfig} */ defineConfig({
   })*/
   outDir: './dist/b2b',
   site: 'https://www.urosystem.com',
-  base: '/b2b',
+  base: '/b2b/',
   trailingSlash: 'ignore'
 });
 
