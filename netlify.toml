@@ -3,4 +3,4 @@
   publish = "dist"
 
 [functions]
-  directory = "dist/functions"
+  directory = "dist/b2b/functions"
