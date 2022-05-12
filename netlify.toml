@@ -3,4 +3,4 @@
   publish = "dist"
 
 [functions]
-  directory = "dist/b2b/edge-functions"
+  directory = "dist/functions"
