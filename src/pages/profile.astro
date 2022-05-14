@@ -6,7 +6,7 @@ const url = new URL(Astro.request.url);
 const user = url.searchParams.get('email');
 ---
 <Layout title="CUSTOMER PROFILE">
-    <Identity client:load bind={false} redirect="/b2b/"/>
+    <Identity client:only="svelte" bind={false} redirect="/b2b/"/>
 
     <div class="card w-auto shadow-xl image--full mx-4 bg-base-100">
       <form class="card-body gap-8" name="B2B Onboarding Form" method="POST" action="/thankyou">

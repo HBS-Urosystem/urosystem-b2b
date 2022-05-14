@@ -10,11 +10,11 @@ export default /** @type {import('astro').AstroUserConfig} */ defineConfig({
     svelte(),
   ],
   /*adapter: netlify({
-    dist: new URL('./dist/', import.meta.url)
+    dist: new URL('./dist/b2b/', import.meta.url)
   }),*/
-  outDir: './dist/b2b',
   site: 'https://www.urosystem.com',
   base: '/b2b',
+  outDir: './dist/b2b',
   trailingSlash: 'ignore'
 });
 
