@@ -13,8 +13,8 @@ export default /** @type {import('astro').AstroUserConfig} */ defineConfig({
     dist: new URL('./dist/b2b/', import.meta.url)
   }),*/
   site: 'https://www.urosystem.com',
-  base: '/b2b',
-  outDir: './dist/b2b',
+  //base: '/',
+  //outDir: './dist',
   trailingSlash: 'ignore'
 });
 
