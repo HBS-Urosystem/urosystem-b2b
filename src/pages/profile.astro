@@ -9,7 +9,7 @@ const user = url.searchParams.get('email');
     <Identity client:only="svelte" bind={false} redirect="/"/>
 
     <div class="card w-auto shadow-xl image--full mx-4 bg-base-100">
-      <form class="card-body gap-8" name="B2B Onboarding Form" method="POST" no-action="/thankyou">
+      <form class="card-body gap-8" name="B2B Onboarding Form" method="POST" action="/thankyou">
         <input type="hidden" name="form-name" value="B2B Onboarding Form">
         <legend class="card-title">The survey will take approximately 4 minutes to complete and helps Urosystem to collect all necessary information to serve its customers better</legend>
         <fieldset class="flex flex-wrap gap-8">
