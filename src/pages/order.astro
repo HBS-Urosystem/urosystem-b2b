@@ -8,7 +8,7 @@ const user = url.searchParams.get('email');
 <script>
   const inputs = document.querySelectorAll('input[data-multi]');
   inputs.forEach((i) => {
-    ['change','onkeyup'].forEach( evt => 
+    ['change','keyup'].forEach( evt => 
       i.addEventListener(evt, () => {
         const id = event.target.id;
         const v = event.target.valueAsNumber;
