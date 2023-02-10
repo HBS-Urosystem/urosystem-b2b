@@ -8,14 +8,23 @@ const user = url.searchParams.get('email');
 <script>
   const inputs = document.querySelectorAll('input[data-multi]');
   inputs.forEach((i) => {
-    i.addEventListener('change', () => {
+    ['change','onkeyup'].forEach( evt => 
+      i.addEventListener(evt, () => {
+        const id = event.target.id;
+        const v = event.target.valueAsNumber;
+        const m = event.target.dataset.multi;//_multi(v, 5);
+        const total = document.getElementById(`${id}-confirm`);
+        total.valueAsNumber = _multi(v,m);
+      }, false)
+    );
+    /*i.addEventListener('change', () => {
       const id = event.target.id;
       const v = event.target.valueAsNumber;
       const m = event.target.dataset.multi;//_multi(v, 5);
       const total = document.getElementById(`${id}-confirm`);
       total.valueAsNumber = _multi(v,m);
       //console.log(total,_multi(v,m));
-    });
+    });*/
   });
   const _multi = (val, m) => { return val * m };
 </script>
