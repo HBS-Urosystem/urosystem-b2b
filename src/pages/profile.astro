@@ -2,8 +2,8 @@
 import Identity from '../components/Identity.svelte';
 import Layout from '../components/Layout.astro';
 
-const url = new URL(Astro.request.url);
-const user = url.searchParams.get('email');
+//const url = new URL(Astro.request.url);
+//const user = url.searchParams.get('email');
 ---
 <Layout title="CUSTOMER PROFILE">
     <Identity client:only="svelte" bind={false} redirect="/"/>
@@ -38,7 +38,7 @@ const user = url.searchParams.get('email');
         </fieldset>
         <fieldset class="flex flex-wrap gap-8">
           <label for="email" class="flex-1 min-w-fit">Contact's Email<br>
-            <input id="email" name="email" type="email" required placeholder="* required" class="input input-bordered input-md flex-1 min-w-fit w-full" value={user}>
+            <input id="email" name="email" type="email" required placeholder="* required" class="input input-bordered input-md flex-1 min-w-fit w-full">
           </label>
           <label for="phone" class="flex-1 min-w-fit">Contact's phone number (intl. format)<br>
             <input id="phone" name="phone" type="tel" title="+00 1 123 4567890" nonpattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required placeholder="* required (+00 1 123 4567890)" class="input input-bordered input-md flex-1 min-w-fit w-full">
@@ -91,3 +91,13 @@ input, textarea {
   text-shadow: 0 0 0.75em var(--dark-blue);
 }
 </style>
+
+<script is:inline>
+  const u = new URL(window.location.href); 
+  const email = u.searchParams.get('email')
+  if (email) {
+    const el = document.getElementById("email");
+    //console.log(el);
+    el.value = email;
+  }
+</script>

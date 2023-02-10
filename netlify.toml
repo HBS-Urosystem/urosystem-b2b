@@ -1,7 +1,7 @@
 [build]
   command = "npm run build"
-  publish = "dist"
+  publish = "build"
 
 [functions]
-  directory = "dist/functions"
+  directory = "build/functions"
   #external_node_modules = ["astro"]

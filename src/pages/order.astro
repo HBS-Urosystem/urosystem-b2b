@@ -5,6 +5,21 @@ import Layout from '../components/Layout.astro';
 const url = new URL(Astro.request.url);
 const user = url.searchParams.get('email');
 ---
+<script>
+  const inputs = document.querySelectorAll('input[data-multi]');
+  inputs.forEach((i) => {
+    i.addEventListener('change', () => {
+      const id = event.target.id;
+      const v = event.target.valueAsNumber;
+      const m = event.target.dataset.multi;//_multi(v, 5);
+      const total = document.getElementById(`${id}-confirm`);
+      total.valueAsNumber = _multi(v,m);
+      //console.log(total,_multi(v,m));
+    });
+  });
+  const _multi = (val, m) => { return val * m };
+</script>
+
 <Layout title="CUSTOMER ORDER FORM">
     <Identity client:only="svelte" bind={false} redirect="/"/>
 
@@ -16,34 +31,34 @@ const user = url.searchParams.get('email');
             <input id="company" name="company" type="text" required placeholder="* required" class="input input-bordered input-md flex-1 min-w-fit w-full">
           </label>
           <label for="email" class="flex-1 min-w-fit">Contact's Email<br>
-            <input id="email" name="email" type="email" required placeholder="* required" class="input input-bordered input-md flex-1 min-w-fit w-full" value={user}>
+            <input id="email" name="email" type="email" required placeholder="* required" class="input input-bordered input-md flex-1 min-w-fit w-full">
           </label>
         </fieldset>
         <fieldset class="flex flex-wrap gap-8">
           <legend>5 pieces box of UroDapter®</legend>
           <label for="5pcs" class="flex-1 min-w-fit">Number of boxes with 5 pieces<br>
-            <input id="5pcs" name="5pcs" type="number" min="0" required placeholder="* required" class="input input-bordered input-md flex-1 min-w-fit w-full">
+            <input id="5pcs" name="5pcs" type="number" min="0" required placeholder="* required" data-multi=5 class="input input-bordered input-md flex-1 min-w-fit w-full">
           </label>
           <label for="5pcs-confirm" class="flex-1 min-w-fit">Total number of pieces (for control)<br>
-            <input id="5pcs-confirm" name="5pcs-confirm" type="number" min="0" required placeholder="* required" class="input input-bordered input-md flex-1 min-w-fit w-full">
+            <input id="5pcs-confirm" name="5pcs-confirm" type="number" min="0" disabled class="input input-bordered input-md flex-1 min-w-fit w-full">
           </label>
         </fieldset>
         <fieldset class="flex flex-wrap gap-8">
           <legend>10 pieces box of UroDapter®</legend>
           <label for="10pcs" class="flex-1 min-w-fit">Number of boxes with 10 pieces<br>
-            <input id="10pcs" name="10pcs" type="number" min="0" required placeholder="* required" class="input input-bordered input-md flex-1 min-w-fit w-full">
+            <input id="10pcs" name="10pcs" type="number" min="0" required placeholder="* required" data-multi=10 class="input input-bordered input-md flex-1 min-w-fit w-full">
           </label>
           <label for="10pcs-confirm" class="flex-1 min-w-fit">Total number of pieces (for control)<br>
-            <input id="10pcs-confirm" name="10pcs-confirm" type="number" min="0" required placeholder="* required" class="input input-bordered input-md flex-1 min-w-fit w-full">
+            <input id="10pcs-confirm" name="10pcs-confirm" type="number" min="0" disabled class="input input-bordered input-md flex-1 min-w-fit w-full">
           </label>
         </fieldset>
         <fieldset class="flex flex-wrap gap-8">
           <legend>100 pieces box of UroDapter®</legend>
           <label for="100pcs" class="flex-1 min-w-fit">Number of boxes with 100 pieces<br>
-            <input id="100pcs" name="100pcs" type="number" min="0" required placeholder="* required" class="input input-bordered input-md flex-1 min-w-fit w-full">
+            <input id="100pcs" name="100pcs" type="number" min="0" required placeholder="* required" data-multi=100 class="input input-bordered input-md flex-1 min-w-fit w-full">
           </label>
           <label for="100pcs-confirm" class="flex-1 min-w-fit">Total number of pieces (for control)<br>
-            <input id="100pcs-confirm" name="100pcs-confirm" type="number" min="0" required placeholder="* required" class="input input-bordered input-md flex-1 min-w-fit w-full">
+            <input id="100pcs-confirm" name="100pcs-confirm" type="number" min="0" disabled class="input input-bordered input-md flex-1 min-w-fit w-full">
           </label>
         </fieldset>
 
@@ -74,3 +89,13 @@ input, textarea {
   text-shadow: 0 0 0.75em var(--dark-blue);
 }
 </style>
+
+<script is:inline>
+  const u = new URL(window.location.href); 
+  const email = u.searchParams.get('email')
+  if (email) {
+    const el = document.getElementById("email");
+    //console.log(el);
+    el.value = email;
+  }
+</script>

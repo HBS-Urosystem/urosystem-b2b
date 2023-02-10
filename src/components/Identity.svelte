@@ -89,7 +89,7 @@
     </fieldset>
     <fieldset>
       <input id="consent" bind:checked={consent} name="consent" type="checkbox" required class="checkbox checkbox-xs" />
-      <label for="consent">I accept the </label><a href="https://www.urosystem.com/en/privacy-policy" rel="external" target="_blank">Privacy Policy</a>
+      <label for="consent">I accept the </label><a href="https://www.urosystem.com/en/privacy-policy" rel="noreferrer" target="_blank">Privacy Policy</a>
     </fieldset>
   </div>
 </div>
